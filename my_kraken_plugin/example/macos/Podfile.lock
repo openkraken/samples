@@ -56,7 +56,7 @@ SPEC CHECKSUMS:
   connectivity_macos: 9f30e9d0e67a0bc08a0c563ee82310b51ca6e818
   FlutterMacOS: 15bea8a44d2fa024068daa0140371c020b4b6ff9
   kraken: 1b6c815708f6468c9301b7c26e357d4f93af6cb0
-  my_kraken_plugin: 680a23d54c518f60f24224f9022a83a5d1df1700
+  my_kraken_plugin: b5c8a25d5e9e0ef3aa1b69e46baae6d823e36509
   path_provider: e0848572d1d38b9a7dd099e79cf83f5b7e2cde9f
   path_provider_macos: a0a3fd666cb7cd0448e936fb4abad4052961002b
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96

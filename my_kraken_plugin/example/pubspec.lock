@@ -71,20 +71,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.6"
-  convert:
-    dependency: transitive
-    description:
-      name: convert
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.1"
-  crypto:
-    dependency: transitive
-    description:
-      name: crypto
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.5"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -169,14 +155,7 @@ packages:
       name: kraken
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.6-dev.4"
-  kraken_webview:
-    dependency: transitive
-    description:
-      name: kraken_webview
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.5"
+    version: "0.6.6+2"
   matcher:
     dependency: transitive
     description:
@@ -378,13 +357,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.2"
-  web_socket_channel:
-    dependency: transitive
-    description:
-      name: web_socket_channel
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.0"
   win32:
     dependency: transitive
     description:
@@ -400,5 +372,5 @@ packages:
     source: hosted
     version: "0.1.2"
 sdks:
-  dart: ">=2.10.0 <2.11.0"
+  dart: ">=2.10.0-110 <2.11.0"
   flutter: ">=1.22.0 <2.0.0"
