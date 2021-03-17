@@ -1,2 +1,2 @@
-# kraken_plugin_examples
-Examples show how to develop a Kraken Plugin
+# examples
+A collection of Krakens examples and demos.
