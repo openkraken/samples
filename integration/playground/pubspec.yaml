@@ -1,5 +1,5 @@
 name: playground
-description: A new Flutter project.
+description: A playground app for kraken.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -23,7 +23,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  kraken: ^0.7.0
+  # Fix a bug that cause camera not disposed in iOS.
+  qr_code_scanner:
+    path: ./plugins/qr_code_scanner
+  url_launcher: 5.7.6
+  validators: ^2.0.1
+  fluttertoast: ^7.1.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
