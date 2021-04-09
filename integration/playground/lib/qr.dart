@@ -61,7 +61,7 @@ class _QRScannerPageState extends State<QRScannerPage> {
 
     if (isURL(scanData)) {
       await ScanHistoryStorage().addRecord(scanData);
-      await Navigator.pushReplacement(
+      await Navigator.push(
         context,
         CupertinoPageRoute(
           builder: (context) => KrakenPage(scanData),
