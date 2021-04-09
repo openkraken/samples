@@ -1,0 +1,85 @@
+PODS:
+  - connectivity (0.0.1):
+    - Flutter
+    - Reachability
+  - device_info (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - fluttertoast (0.0.2):
+    - Flutter
+    - Toast
+  - kraken (0.6.3):
+    - Flutter
+  - MTBBarcodeScanner (5.0.11)
+  - path_provider (0.0.1):
+    - Flutter
+  - qr_code_scanner (0.0.2):
+    - Flutter
+    - MTBBarcodeScanner
+  - Reachability (3.2)
+  - shared_preferences (0.0.1):
+    - Flutter
+  - Toast (4.0.0)
+  - url_launcher (0.0.1):
+    - Flutter
+  - vibration (1.7.3):
+    - Flutter
+
+DEPENDENCIES:
+  - connectivity (from `.symlinks/plugins/connectivity/ios`)
+  - device_info (from `.symlinks/plugins/device_info/ios`)
+  - Flutter (from `Flutter`)
+  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - kraken (from `.symlinks/plugins/kraken/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - qr_code_scanner (from `.symlinks/plugins/qr_code_scanner/ios`)
+  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
+  - vibration (from `.symlinks/plugins/vibration/ios`)
+
+SPEC REPOS:
+  trunk:
+    - MTBBarcodeScanner
+    - Reachability
+    - Toast
+
+EXTERNAL SOURCES:
+  connectivity:
+    :path: ".symlinks/plugins/connectivity/ios"
+  device_info:
+    :path: ".symlinks/plugins/device_info/ios"
+  Flutter:
+    :path: Flutter
+  fluttertoast:
+    :path: ".symlinks/plugins/fluttertoast/ios"
+  kraken:
+    :path: ".symlinks/plugins/kraken/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
+  qr_code_scanner:
+    :path: ".symlinks/plugins/qr_code_scanner/ios"
+  shared_preferences:
+    :path: ".symlinks/plugins/shared_preferences/ios"
+  url_launcher:
+    :path: ".symlinks/plugins/url_launcher/ios"
+  vibration:
+    :path: ".symlinks/plugins/vibration/ios"
+
+SPEC CHECKSUMS:
+  connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
+  device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
+  kraken: abbf8aa9ebd07539e1a736a1e2fcae73cb6cb4d8
+  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
+  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
+  qr_code_scanner: 16107718bdad7d708cdf6a5eacdca24b56cdf471
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
+  vibration: b5a33e764c3f609a975b9dca73dce20fdde627dc
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.9.1
