@@ -18,7 +18,7 @@ class KrakenPlayground extends StatefulWidget {
 }
 
 class _KrakenPlaygroundState extends State<KrakenPlayground> {
-  String _singleKrakenAppURL;
+  String? _singleKrakenAppURL;
   void setSingleKrakenURL(String url) {
     setState(() {
       _singleKrakenAppURL = url;
@@ -27,7 +27,7 @@ class _KrakenPlaygroundState extends State<KrakenPlayground> {
 
   Widget _buildHome() {
     if (_singleKrakenAppURL != null) {
-      return KrakenPage(_singleKrakenAppURL, showFPS: false);
+      return KrakenPage(_singleKrakenAppURL!, showFPS: false);
     } else {
       return QRScannerPage();
     }

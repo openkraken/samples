@@ -10,11 +10,11 @@ import 'package:kraken/kraken.dart';
 import 'package:kraken/widget.dart';
 
 class KrakenPage extends StatelessWidget {
-  KrakenPage(this.source, { bool showFPS = true, Key key }) : _showFPS = showFPS, super(key: key);
+  KrakenPage(this.source, { bool showFPS = true, Key? key }) : _showFPS = showFPS, super(key: key);
 
   final String source;
   final bool _showFPS;
-  DateTime _startTime;
+  DateTime? _startTime;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class KrakenPage extends StatelessWidget {
 
   void _handleLoad(KrakenController controller) async {
     DateTime current = DateTime.now();
-    int cost = current.millisecondsSinceEpoch - _startTime.millisecondsSinceEpoch;
+    int cost = current.millisecondsSinceEpoch - _startTime!.millisecondsSinceEpoch;
     print('LoadCost: ${cost}ms');
     _record(source, cost);
     if (kDebugMode || kProfileMode) {
@@ -91,8 +91,8 @@ class _FPSState extends State<FPSInformation> {
   void _fpsTick(FpsInfo fpsInfo) {
     if (_fps != fpsInfo.fps) {
       _fps = fpsInfo.fps;
-      RenderObject r = context.findRenderObject();
-      r.markNeedsPaint();
+      RenderObject? r = context.findRenderObject();
+      r?.markNeedsPaint();
     }
   }
 
@@ -104,7 +104,6 @@ class _FPSState extends State<FPSInformation> {
 
 class FPSIndicator extends CustomPainter {
   TextPainter _getTextPainter() {
-    if (_FPSState._fps == null) return null;
     final String rate = _FPSState._fps.toStringAsFixed(1);
     final String text = '${rate}f/s';
     final TextStyle textStyle = TextStyle(
@@ -146,13 +145,13 @@ typedef FpsCallback = void Function(FpsInfo fpsInfo);
 class Fps {
   Fps._();
 
-  static Fps _instance;
+  static Fps? _instance;
 
   static Fps get instance {
     if (_instance == null) {
       _instance = Fps._();
     }
-    return _instance;
+    return _instance!;
   }
 
   /// 1000/60hz ≈ 16.6ms  1000/120hz ≈ 8.3ms
@@ -185,14 +184,14 @@ class Fps {
 
   void start() async {
     if (!_started) {
-      SchedulerBinding.instance.addTimingsCallback(_onTimingsCallback);
+      SchedulerBinding.instance!.addTimingsCallback(_onTimingsCallback);
       _started = true;
     }
   }
 
   void stop() {
     if (_started) {
-      SchedulerBinding.instance.removeTimingsCallback(_onTimingsCallback);
+      SchedulerBinding.instance!.removeTimingsCallback(_onTimingsCallback);
       _started = false;
     }
   }
@@ -236,7 +235,7 @@ class Fps {
       int droppedCount = totalCount - drawFramesCount;
       double fps = drawFramesCount / totalCount * _refreshRate;
       FpsInfo fpsInfo = FpsInfo(fps, totalCount, droppedCount, drawFramesCount);
-      _fpsCallbacks?.forEach((callBack) {
+      _fpsCallbacks.forEach((callBack) {
         callBack(fpsInfo);
       });
     }
