@@ -17,8 +17,10 @@ class QRScannerPage extends StatefulWidget {
   State<StatefulWidget> createState() => _QRScannerPageState();
 }
 
+
+
 class _QRScannerPageState extends State<QRScannerPage> {
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  int qrViewCount = 0;
   bool flashState = false;
   bool isScanning = true;
   QRViewController? controller;
@@ -35,7 +37,7 @@ class _QRScannerPageState extends State<QRScannerPage> {
         ),
       ),
       child: QRView(
-        key: qrKey,
+        key: GlobalKey(debugLabel: 'QR$qrViewCount'),
         onQRViewCreated: _onQRViewCreated,
         overlay: QrScannerOverlayShape(
           borderColor: Colors.red,
@@ -49,9 +51,15 @@ class _QRScannerPageState extends State<QRScannerPage> {
   }
 
   void _enterHistory() async {
+    controller?.pauseCamera();
+    controller?.dispose();
     await Navigator.push(context, CupertinoPageRoute(
       builder: (context) => HistoryPage(),
     ));
+    // This line will continue while history is backed.
+    setState(() {
+      qrViewCount = qrViewCount + 1;
+    });
   }
 
   void _onQRScanned(Barcode scanData) async {
@@ -62,12 +70,21 @@ class _QRScannerPageState extends State<QRScannerPage> {
     final String code = scanData.code;
     if (isURL(code)) {
       await ScanHistoryStorage().addRecord(code);
+
+      controller?.pauseCamera();
+      controller?.dispose();
+
       await Navigator.push(
         context,
         CupertinoPageRoute(
           builder: (context) => KrakenPage(code),
         ),
       );
+
+      // This line will continue while history is backed.
+      setState(() {
+        qrViewCount = qrViewCount + 1;
+      });
     } else {
       await Fluttertoast.showToast(
         msg: 'Scanned: $scanData',
