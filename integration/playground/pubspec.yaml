@@ -15,25 +15,24 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.1.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  kraken: ^0.7.0
+  kraken: ^0.8.0+2
   # Fix a bug that cause camera not disposed in iOS.
-  qr_code_scanner:
-    path: ./plugins/qr_code_scanner
-  url_launcher: 5.7.6
-  validators: ^2.0.1
-  fluttertoast: ^7.1.1
+  qr_code_scanner: ^0.5.1
+  url_launcher: ^6.0.8
+  validators: ^3.0.0
+  fluttertoast: ^8.0.7
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.0
+  cupertino_icons: ^1.0.3
 
 dev_dependencies:
   flutter_test:

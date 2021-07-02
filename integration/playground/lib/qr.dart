@@ -11,17 +11,19 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'kraken.dart';
 
 class QRScannerPage extends StatefulWidget {
-  const QRScannerPage({ Key key }) : super(key: key);
+  const QRScannerPage({ Key? key }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _QRScannerPageState();
 }
 
+
+
 class _QRScannerPageState extends State<QRScannerPage> {
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  int qrViewCount = 0;
   bool flashState = false;
   bool isScanning = true;
-  QRViewController controller;
+  QRViewController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class _QRScannerPageState extends State<QRScannerPage> {
         ),
       ),
       child: QRView(
-        key: qrKey,
+        key: GlobalKey(debugLabel: 'QR$qrViewCount'),
         onQRViewCreated: _onQRViewCreated,
         overlay: QrScannerOverlayShape(
           borderColor: Colors.red,
@@ -49,24 +51,40 @@ class _QRScannerPageState extends State<QRScannerPage> {
   }
 
   void _enterHistory() async {
+    controller?.pauseCamera();
+    controller?.dispose();
     await Navigator.push(context, CupertinoPageRoute(
       builder: (context) => HistoryPage(),
     ));
+    // This line will continue while history is backed.
+    setState(() {
+      qrViewCount = qrViewCount + 1;
+    });
   }
 
-  void _onQRScanned(String scanData) async {
+  void _onQRScanned(Barcode scanData) async {
     // Avoid duplicated scanning.
     if (!isScanning) return;
     isScanning = false;
 
-    if (isURL(scanData)) {
-      await ScanHistoryStorage().addRecord(scanData);
+    final String code = scanData.code;
+    if (isURL(code)) {
+      await ScanHistoryStorage().addRecord(code);
+
+      controller?.pauseCamera();
+      controller?.dispose();
+
       await Navigator.push(
         context,
         CupertinoPageRoute(
-          builder: (context) => KrakenPage(scanData),
+          builder: (context) => KrakenPage(code),
         ),
       );
+
+      // This line will continue while history is backed.
+      setState(() {
+        qrViewCount = qrViewCount + 1;
+      });
     } else {
       await Fluttertoast.showToast(
         msg: 'Scanned: $scanData',
@@ -106,18 +124,19 @@ class HistoryPage extends StatefulWidget {
 }
 
 class _HistoryState extends State<HistoryPage> {
-  List<String> _records;
+  List<String>? _records;
 
   @override
   void initState() {
     super.initState();
     ScanHistoryStorage().readHistory()
-        .then((List<String> records) {
+        .then((List<String>? records) {
       setState(() {
         _records = records;
       });
     });
   }
+
   @override
   void deactivate() {
     // TODO: implement deactivate
@@ -133,10 +152,10 @@ class _HistoryState extends State<HistoryPage> {
         middle: Text('Scan History'),
       ),
       child: Scaffold(
-        body: ListView.separated(
+        body: _records == null ? null : ListView.separated(
           itemCount: _records?.length ?? 0,
           itemBuilder: (BuildContext context, int index) {
-            String url = _records[_records.length - index - 1];
+            String url = _records![_records!.length - index - 1];
             return ListTile(
               title: Text(url),
               hoverColor: Colors.white24,
@@ -160,14 +179,14 @@ class _HistoryState extends State<HistoryPage> {
 
 class ScanHistoryStorage {
   static String FILE_NAME = 'scan_history.data';
-  static ScanHistoryStorage instance;
+  static ScanHistoryStorage? instance;
 
   factory ScanHistoryStorage() {
     if (ScanHistoryStorage.instance != null) {
-      return instance;
+      return instance!;
     } else {
       ScanHistoryStorage.instance = ScanHistoryStorage._();
-      return ScanHistoryStorage.instance;
+      return ScanHistoryStorage.instance!;
     }
   }
 
@@ -183,7 +202,7 @@ class ScanHistoryStorage {
     return File('$path/$FILE_NAME');
   }
 
-  Future<List<String>> readHistory() async {
+  Future<List<String>?> readHistory() async {
     try {
       final file = await _localFile;
       // Read the file
@@ -199,9 +218,9 @@ class ScanHistoryStorage {
 
   Future<void> addRecord(String url) async {
     try {
-      List<String> original = await readHistory();
+      List<String>? original = await readHistory();
       if (original == null) {
-        original = List<String>();
+        original = <String>[];
       }
       if (original.contains(url)) {
         original.remove(url);
