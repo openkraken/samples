@@ -2,9 +2,11 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:playground/qr.dart';
+import 'package:kraken_video_player/kraken_video_player.dart';
 import 'kraken.dart';
 
 void main() async {
+  KrakenVideoPlayer.initialize();
   var app = KrakenPlayground();
   runApp(app);
   sendPV();

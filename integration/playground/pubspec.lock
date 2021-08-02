@@ -162,7 +162,14 @@ packages:
       name: kraken
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.0+2"
+    version: "0.8.1"
+  kraken_video_player:
+    dependency: "direct main"
+    description:
+      name: kraken_video_player
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0"
   matcher:
     dependency: transitive
     description:
@@ -413,6 +420,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.3-nullsafety.0"
+  video_player_platform_interface:
+    dependency: transitive
+    description:
+      name: video_player_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.0"
   win32:
     dependency: transitive
     description:

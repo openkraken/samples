@@ -26,7 +26,7 @@ class KrakenPage extends StatelessWidget {
       viewportWidth: viewportSize.width,
       viewportHeight: viewportSize.height,
       onLoad: _handleLoad,
-      color: Colors.white,
+      background: Colors.white,
     );
     if (_showFPS) {
       return Stack(
