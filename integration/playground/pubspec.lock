@@ -162,7 +162,7 @@ packages:
       name: kraken
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.1"
+    version: "0.8.2"
   kraken_video_player:
     dependency: "direct main"
     description:

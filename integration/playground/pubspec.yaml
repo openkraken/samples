@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  kraken: ^0.8.1
+  kraken: ^0.8.2
   # Fix a bug that cause camera not disposed in iOS.
   qr_code_scanner: ^0.5.1
   url_launcher: ^6.0.8
