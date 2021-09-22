@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "dev": "vite build --mode=development --watch",
+    "open": "kraken ./dist/main.js",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "vue": "^3.2.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.7.0",
+    "@vue/compiler-sfc": "^3.2.12",
+    "vite": "^2.5.8"
+  }
+}
