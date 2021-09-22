@@ -1,0 +1,14 @@
+node_modules/
+public/dist
+
+pom.xml
+pom.xml.asc
+*.iml
+*.jar
+*.log
+.shadow-cljs
+.lsp
+.idea
+.lein-*
+.nrepl-*
+.DS_Store
