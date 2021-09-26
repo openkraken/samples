@@ -4,6 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <div :style="style.info">More information about Vue.js</div>
     <div :style="style.info">Visit https://cn.vuejs.org/</div>
+    <div>router: <router-view /></div>
   </div>
 </template>
 
