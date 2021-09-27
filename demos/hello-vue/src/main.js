@@ -1,16 +1,18 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import * as VueRouter from 'vue-router'
-import Home from './views/home';
-import About from './views/about';
+import VueComponent from './views/vue';
+import KrakenComponent from './views/kraken';
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/about', component: About },
+  { path: '/vue', component: VueComponent },
+  { path: '/kraken', component: KrakenComponent },
 ]
 
+let history = VueRouter.createWebHashHistory();
+
 const router = VueRouter.createRouter({
-  history: VueRouter.createWebHashHistory(),
+  history,
   routes,
 })
   
