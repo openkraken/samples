@@ -1,6 +1,17 @@
 <template>
   <div :style="style.home">
-    <img alt="Vue logo" src="//img.alicdn.com/imgextra/i3/O1CN01HmN4l21lpai7j2p3H_!!6000000004868-2-tps-200-200.png">
+    <div :style="style.changeRouter">
+      <div :style="style.button" @click="goToVue">
+      click me to Vue
+      </div>
+      <div :style="style.button" @click="goToKraken">
+        click me to Kraken
+      </div>
+    </div>
+    <div :style="style.router">router is {{$route.path}}</div>
+    <div>
+      <router-view />
+    </div>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <div :style="style.info">More information about Vue.js</div>
     <div :style="style.info">Visit https://cn.vuejs.org/</div>
@@ -11,6 +22,9 @@
 import HelloWorld from './components/HelloWorld.vue'
 
 const style = {
+  router: {
+    margin: '30px 0px',
+  },
   home: {
     display: 'flex',
     position: 'relative',
@@ -25,6 +39,15 @@ const style = {
     fontSize: '18px',
     margin: '5px 0',
     color: '#555555',
+  },
+  button: {
+    padding: '10px 10px',
+    border: '1px solid #333333',
+    margin: '0px 10px'
+  },
+  changeRouter: {
+    display: 'flex',
+    marginTop: '20px',
   }
 }
 
@@ -38,5 +61,13 @@ export default {
       style,
     }
   },
+  methods: {
+    goToVue () {
+      this.$router.replace('vue')
+    },
+    goToKraken () {
+      this.$router.replace('kraken')
+    }
+  }
 }
 </script>
