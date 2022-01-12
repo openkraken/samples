@@ -5,6 +5,12 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+axios.get('https://kraken.oss-cn-hangzhou.aliyuncs.com/logs/00a4c78b0ca4cc0f1fa32c198ab3da0d209f5150.log').then(response => {
+  console.log(response);
+})
+
 const style = {
   img: {
     margin: '10px 0px'
