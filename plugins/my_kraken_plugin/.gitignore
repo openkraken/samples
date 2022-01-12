@@ -6,3 +6,6 @@
 
 build/
 *.dSYM/
+
+pubspec.lock
+Podfile.lock

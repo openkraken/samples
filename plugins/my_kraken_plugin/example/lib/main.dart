@@ -28,8 +28,9 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Kraken(bundlePath: 'assets/bundle.js')
-        ),
+            child: Kraken(
+          bundle: KrakenBundle.fromUrl('assets://assets/bundle.js'),
+        )),
       ),
     );
   }

@@ -26,7 +26,7 @@ class AlarmClockModule extends BaseModule {
       return null;
     } catch (e, stack) {
       String errmsg = '$e\n$stack';
-      callback(errmsg: errmsg);
+      callback(error: errmsg);
     }
 
     return null;
