@@ -1,0 +1,31 @@
+.router {
+    margin: 30px 0px;
+}
+
+.home {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 27vw 0vw 0vw;
+    padding: 0vw;
+    min-width: 0vw;
+    align-items: center;
+}
+
+.info {
+    align-items: center;
+    font-size: 18px;
+    margin: 5px 0;
+    color: #555555;
+}
+
+.button {
+    padding: 10px 10px;
+    border: 1px solid #333333;
+    margin: 0px 10px;
+}
+
+.changeRouter {
+    display: flex;
+    margin-top: 20px;
+}
