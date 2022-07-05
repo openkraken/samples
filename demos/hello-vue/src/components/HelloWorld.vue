@@ -1,41 +1,37 @@
 <template>
   <div>
-    <div :style="style.helloWorld">
+    <div class="helloworld">
       {{msg}}
     </div>
   </div>
 </template>
 
-<script>
-const style = {
-  helloWorld: {
-    boxSizing: 'border-box',
-    display: 'flex',
-    position: 'relative',
-    flexDirection: 'column',
-    flexShrink: 0,
-    alignContent: 'flex-start',
-    borderWidth: 0,
-    borderStyle: 'solid',
-    borderColor: 'black',
-    margin: '2.66667vw 0vw',
-    padding: 0,
-    minWidth: 0,
-    alignItems: 'center',
-    fontSize: '6vw',
-    fontWeight: 'bold',
-  }
+<style>
+.helloworld {
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-content: flex-start;
+  border-width: 0;
+  border-style: solid;
+  border-color: black;
+  margin: 2.66667vw 0;
+  padding: 0;
+  min-width: 0;
+  align-items: center;
+  font-size: 20px;
+  color: red;
 }
 
+</style>
+
+<script>
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  },
-  data() {
-    return {
-      style,
-    }
   },
 }
 </script>
